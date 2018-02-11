@@ -59,6 +59,8 @@ namespace SuperSocketSdy.ConsoleTest
 			telnetServer.Start();
 			telnetServer.NewRequestReceived += new ECHO().ExecuteCommand;
 			telnetServer.NewRequestReceived += new AVG().ExecuteCommand;
+			telnetServer.NewSessionConnected += TelnetServer_NewSessionConnected;
+			telnetServer.SessionClosed += TelnetServer_SessionClosed;
 			Console.WriteLine("The server started successfully, press key 'q' to stop it!");
 			Console.ReadKey();
 
@@ -105,6 +107,16 @@ namespace SuperSocketSdy.ConsoleTest
 			//Console.WriteLine("The server was stopped!");
 			//Console.ReadKey();
 
+		}
+
+		private static void TelnetServer_SessionClosed(TelnetSession session, CloseReason reason)
+		{
+			Console.WriteLine("A session is closed for {0}.", reason);
+		}
+
+		private static void TelnetServer_NewSessionConnected(TelnetSession session)
+		{
+			session.Send("Welcome to SuperSocket Telnet Server");
 		}
 
 		private static void AppServer_NewRequestReceived(AppSession session, StringRequestInfo requestInfo)
