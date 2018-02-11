@@ -54,12 +54,13 @@ namespace SuperSocketSdy.ConsoleTest
 			//Console.ReadKey();
 
 
-			//var telnetServer = new TelnetServer();
-			//telnetServer.Setup(2012);
-			//telnetServer.Start();
-			//telnetServer.NewRequestReceived += new ECHO().ExecuteCommand;
-			//Console.WriteLine("The server started successfully, press key 'q' to stop it!");
-			//Console.ReadKey();
+			var telnetServer = new TelnetServer();
+			telnetServer.Setup(2012);
+			telnetServer.Start();
+			telnetServer.NewRequestReceived += new ECHO().ExecuteCommand;
+			telnetServer.NewRequestReceived += new AVG().ExecuteCommand;
+			Console.WriteLine("The server started successfully, press key 'q' to stop it!");
+			Console.ReadKey();
 
 
 
@@ -68,41 +69,41 @@ namespace SuperSocketSdy.ConsoleTest
 			//Console.ReadKey();
 			//Console.WriteLine();
 
-			var bootstrap = BootstrapFactory.CreateBootstrap();
+			//var bootstrap = BootstrapFactory.CreateBootstrap();
 
-			if (!bootstrap.Initialize())
-			{
-				Console.WriteLine("Failed to initialize!");
-				Console.ReadKey();
-				return;
-			}
+			//if (!bootstrap.Initialize())
+			//{
+			//	Console.WriteLine("Failed to initialize!");
+			//	Console.ReadKey();
+			//	return;
+			//}
 
-			var result = bootstrap.Start();
+			//var result = bootstrap.Start();
 
-			Console.WriteLine("Start result: {0}!", result);
+			//Console.WriteLine("Start result: {0}!", result);
 
-			if (result == StartResult.Failed)
-			{
-				Console.WriteLine("Failed to start!");
-				Console.ReadKey();
-				return;
-			}
+			//if (result == StartResult.Failed)
+			//{
+			//	Console.WriteLine("Failed to start!");
+			//	Console.ReadKey();
+			//	return;
+			//}
 
-			Console.WriteLine("Press key 'q' to stop it!");
+			//Console.WriteLine("Press key 'q' to stop it!");
 
-			while (Console.ReadKey().KeyChar != 'q')
-			{
-				Console.WriteLine();
-				continue;
-			}
+			//while (Console.ReadKey().KeyChar != 'q')
+			//{
+			//	Console.WriteLine();
+			//	continue;
+			//}
 
-			Console.WriteLine();
+			//Console.WriteLine();
 
-			//Stop the appServer
-			bootstrap.Stop();
+			////Stop the appServer
+			//bootstrap.Stop();
 
-			Console.WriteLine("The server was stopped!");
-			Console.ReadKey();
+			//Console.WriteLine("The server was stopped!");
+			//Console.ReadKey();
 
 		}
 

@@ -9,22 +9,17 @@ using System.Threading.Tasks;
 
 namespace SuperSocketSdy.ConsoleTest
 {
-	class ECHO : CommandBase<TelnetSession, StringRequestInfo>
+	class AVG : CommandBase<TelnetSession, StringRequestInfo>
 	{
-		public override string Name
-		{
-			get { return "01"; }
-		}
 		public override void ExecuteCommand(TelnetSession session, StringRequestInfo requestInfo)
 		{
 			switch (requestInfo.Key.ToUpper())
 			{
-				case ("ECHO"):
-					string remoteAddress = session.RemoteEndPoint.Address.ToString();
-					session.Send(requestInfo.Body + "   by yzz");
+				case ("AVG"):
+					session.Send(requestInfo.Parameters.Select(p => Convert.ToInt32(p)).Average().ToString());
 					break;
 			}
-			
+
 		}
 	}
 }
