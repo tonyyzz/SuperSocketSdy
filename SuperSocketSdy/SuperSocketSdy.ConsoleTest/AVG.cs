@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace SuperSocketSdy.ConsoleTest
 {
+	[LogTimeCommandFilter]
 	class AVG : CommandBase<TelnetSession, StringRequestInfo>
 	{
 		public override void ExecuteCommand(TelnetSession session, StringRequestInfo requestInfo)

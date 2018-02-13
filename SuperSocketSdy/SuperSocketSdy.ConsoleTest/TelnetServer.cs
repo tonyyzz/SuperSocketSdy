@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace SuperSocketSdy.ConsoleTest
 {
+	[LogTimeCommandFilter]
 	class TelnetServer : AppServer<TelnetSession>
 	{
 		//public TelnetServer() : base(new CommandLineReceiveFilterFactory(Encoding.Default, new BasicRequestInfoParser(":", ",")))

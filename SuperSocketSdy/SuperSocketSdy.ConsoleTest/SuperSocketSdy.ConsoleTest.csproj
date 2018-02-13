@@ -89,6 +89,7 @@
   <ItemGroup>
     <Compile Include="ADD.cs" />
     <Compile Include="ECHO.cs" />
+    <Compile Include="LogTimeCommandFilter.cs" />
     <Compile Include="MULT.cs" />
     <Compile Include="PlayerSession.cs" />
     <Compile Include="Program.cs" />
