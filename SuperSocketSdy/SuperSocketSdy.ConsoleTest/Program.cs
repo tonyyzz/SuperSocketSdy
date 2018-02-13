@@ -54,16 +54,18 @@ namespace SuperSocketSdy.ConsoleTest
 			//Console.ReadKey();
 
 
-			var telnetServer = new TelnetServer();
-			telnetServer.Setup(2012);
-			telnetServer.Start();
-			telnetServer.NewRequestReceived += new ECHO().ExecuteCommand;
-			telnetServer.NewRequestReceived += new AVG().ExecuteCommand;
-			telnetServer.NewSessionConnected += TelnetServer_NewSessionConnected;
-			telnetServer.SessionClosed += TelnetServer_SessionClosed;
-			Console.WriteLine("The server started successfully, press key 'q' to stop it!");
-			Console.ReadKey();
+			//var telnetServer = new TelnetServer();
+			//telnetServer.Setup(2012);
+			//telnetServer.Start();
+			//telnetServer.NewRequestReceived += new ECHO().ExecuteCommand;
+			//telnetServer.NewRequestReceived += new AVG().ExecuteCommand;
+			//telnetServer.NewSessionConnected += TelnetServer_NewSessionConnected;
+			//telnetServer.SessionClosed += TelnetServer_SessionClosed;
+			//Console.WriteLine("The server started successfully, press key 'q' to stop it!");
+			//Console.ReadKey();
 
+
+			new TestTest().Do();
 
 
 			//Console.WriteLine("Press any key to start the server!");

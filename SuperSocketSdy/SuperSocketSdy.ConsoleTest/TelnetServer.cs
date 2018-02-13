@@ -32,6 +32,7 @@ namespace SuperSocketSdy.ConsoleTest
 
 		protected override void OnStartup()
 		{
+			
 			base.OnStartup();
 		}
 
