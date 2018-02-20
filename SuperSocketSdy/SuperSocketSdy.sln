@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2006
+VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperSocketSdy.ConsoleTest", "SuperSocketSdy.ConsoleTest\SuperSocketSdy.ConsoleTest.csproj", "{A1667822-54BE-4A94-87B7-DCE989BAE8DB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperSocketSdy.ConsoleTest", "SuperSocketSdy.ConsoleTest\SuperSocketSdy.ConsoleTest.csproj", "{7A1573CD-F438-40DC-A490-3ABA430C0A73}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A1667822-54BE-4A94-87B7-DCE989BAE8DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A1667822-54BE-4A94-87B7-DCE989BAE8DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A1667822-54BE-4A94-87B7-DCE989BAE8DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A1667822-54BE-4A94-87B7-DCE989BAE8DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A1573CD-F438-40DC-A490-3ABA430C0A73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A1573CD-F438-40DC-A490-3ABA430C0A73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A1573CD-F438-40DC-A490-3ABA430C0A73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A1573CD-F438-40DC-A490-3ABA430C0A73}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
