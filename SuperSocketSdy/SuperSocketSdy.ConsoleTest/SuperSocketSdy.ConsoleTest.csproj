@@ -56,7 +56,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App\AppServerStart.cs" />
+    <Compile Include="ServerSession\App\AppServerStart.cs" />
     <Compile Include="Cmd\App\ADD.cs" />
     <Compile Include="Cmd\App\ECHO.cs" />
     <Compile Include="Cmd\App\MULT.cs" />
@@ -66,9 +66,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sessions\PlayerSession.cs" />
-    <Compile Include="Telnet\TelnetServer.cs" />
-    <Compile Include="Telnet\TelnetServerStart.cs" />
-    <Compile Include="Telnet\TelnetSession.cs" />
+    <Compile Include="ServerSession\Telnet\TelnetServer.cs" />
+    <Compile Include="ServerSession\Telnet\TelnetServerStart.cs" />
+    <Compile Include="ServerSession\Telnet\TelnetSession.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
