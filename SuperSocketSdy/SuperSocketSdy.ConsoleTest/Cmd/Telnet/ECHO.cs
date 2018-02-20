@@ -12,6 +12,7 @@ namespace SuperSocketSdy.ConsoleTest.Cmd.Telnet
 	{
 		public override void ExecuteCommand(TelnetSession session, StringRequestInfo requestInfo)
 		{
+			Console.WriteLine($"Body:{requestInfo.Body}");
 			session.Send(requestInfo.Body + " by yzz telnet");
 		}
 	}

@@ -1,5 +1,6 @@
 ﻿using SuperSocket.SocketBase;
 using SuperSocketSdy.ConsoleTest.App;
+using SuperSocketSdy.ConsoleTest.ServerSession.Bnry;
 using SuperSocketSdy.ConsoleTest.Telnet;
 using System;
 using System.Collections.Generic;

@@ -1,25 +1,22 @@
 ﻿using SuperSocket.SocketBase.Config;
+using SuperSocket.SocketBase.Protocol;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace SuperSocketSdy.ConsoleTest.Telnet
+namespace SuperSocketSdy.ConsoleTest.ServerSession.Bnry
 {
-	public class TelnetServerStart
+	public class BnryServerStart
 	{
 		public void Do()
 		{
-			var appServer = new TelnetServer();
-			ServerConfig serverConfig = new ServerConfig();
-
-			Console.WriteLine($"BodyName:{Encoding.UTF8.BodyName}");
-			Console.WriteLine($"EncodingName:{Encoding.UTF8.EncodingName}");
-			Console.WriteLine($"HeaderName:{Encoding.UTF8.HeaderName}");
-			Console.WriteLine($"WebName:{Encoding.UTF8.WebName}");
-
-			serverConfig.TextEncoding = Encoding.UTF8.WebName;
-			serverConfig.Port = 2012;
+			var appServer = new BnryServer();
+			ServerConfig serverConfig = new ServerConfig
+			{
+				TextEncoding = Encoding.UTF8.WebName,
+				Port = 2012
+			};
 			//Setup the appServer
 			//if (!appServer.Setup(2012)) //Setup with listening port
 			Console.WriteLine("服务器启动中...");
@@ -42,7 +39,7 @@ namespace SuperSocketSdy.ConsoleTest.Telnet
 
 			Console.WriteLine("The server started successfully, press key 'q' to stop it!");
 
-			Console.WriteLine($"服务器文本编码：{appServer.TextEncoding.WebName}");
+			appServer.NewRequestReceived += AppServer_NewRequestReceived;
 
 			while (Console.ReadKey().KeyChar != 'q')
 			{
@@ -55,6 +52,11 @@ namespace SuperSocketSdy.ConsoleTest.Telnet
 
 			Console.WriteLine("The server was stopped!");
 			Console.ReadKey();
+		}
+
+		private void AppServer_NewRequestReceived(BnrySession session, BinaryRequestInfo requestInfo)
+		{
+			
 		}
 	}
 }

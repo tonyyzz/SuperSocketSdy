@@ -1,30 +1,30 @@
 ﻿using SuperSocket.SocketBase;
+using SuperSocket.SocketBase.Protocol;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using SuperSocket.SocketBase.Protocol;
 
-namespace SuperSocketSdy.ConsoleTest.Telnet
+namespace SuperSocketSdy.ConsoleTest.ServerSession.Bnry
 {
-	public class TelnetSession : AppSession<TelnetSession>
+	public class BnrySession : AppSession<BnrySession, BinaryRequestInfo>
 	{
 		protected override void HandleException(Exception e)
 		{
 			this.Send("Application error: {0}", e.Message);
 		}
 
-		protected override void HandleUnknownRequest(StringRequestInfo requestInfo)
+		protected override void HandleUnknownRequest(BinaryRequestInfo requestInfo)
 		{
 			this.Send("Unknow request");
 		}
 
 		protected override void OnSessionClosed(CloseReason reason)
 		{
-			//add you logics which will be executed after the session is closed
 			base.OnSessionClosed(reason);
 			Console.WriteLine("");
 			Console.WriteLine($"远程客户端{this.RemoteEndPoint.Address.ToString()}:{this.RemoteEndPoint.Port}断开连接");
+
 		}
 
 		protected override void OnSessionStarted()
@@ -42,12 +42,5 @@ namespace SuperSocketSdy.ConsoleTest.Telnet
 			Console.WriteLine($"开始时间：{this.StartTime.ToString("yyyy-MM-dd HH:mm:ss")}");
 			Console.WriteLine($"安全协议：{this.SecureProtocol.ToString()}");
 		}
-
-		//服务器发送给客户端的消息的后续处理方法
-		//protected override string ProcessSendingMessage(string rawMessage)
-		//{
-		//	//Console.WriteLine($"rawMessage:{rawMessage}");
-		//	//return rawMessage + " yyyyy";
-		//}
 	}
 }
