@@ -41,12 +41,18 @@ namespace SuperSocketSdy.ConsoleTest.Telnet
 			Console.WriteLine($"SessionID:{this.SessionID}");
 			Console.WriteLine($"开始时间：{this.StartTime.ToString("yyyy-MM-dd HH:mm:ss")}");
 			Console.WriteLine($"安全协议：{this.SecureProtocol.ToString()}");
+
+			var sessions = this.AppServer.GetAllSessions().ToList();
 		}
 
 		//服务器发送给客户端的消息的后续处理方法
 		//protected override string ProcessSendingMessage(string rawMessage)
 		//{
 		//	//Console.WriteLine($"rawMessage:{rawMessage}");
+
+
+		//加密处理
+
 		//	//return rawMessage + " yyyyy";
 		//}
 	}

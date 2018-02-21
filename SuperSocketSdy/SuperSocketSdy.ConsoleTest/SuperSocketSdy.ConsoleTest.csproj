@@ -56,6 +56,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attr\LogTimeCommandFilterAttribute.cs" />
+    <Compile Include="ReceiveFilter\Bnry\YourReceiveFilterFactory.cs" />
+    <Compile Include="ReceiveFilter\Bnry\YourReceiveFilter.cs" />
+    <Compile Include="ReceiveFilter\MyReceiveFilter.cs" />
     <Compile Include="ReqInfoParser\YourRequestInfoParser.cs" />
     <Compile Include="ServerSession\App\AppServerStart.cs" />
     <Compile Include="Cmd\App\ADD.cs" />

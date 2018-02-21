@@ -30,7 +30,12 @@ namespace SuperSocketSdy.ConnTest
 			while (true)
 			{
 				i++;
-				var buffter = Encoding.UTF8.GetBytes($"ECHO Test Send Message:{i}{Environment.NewLine}");
+				//内置默认命令行协议
+				//var buffter = Encoding.UTF8.GetBytes($"ECHO Test Send Message:{i}\r\n");
+				var buffter = Encoding.UTF8.GetBytes($"01 Test Send Message:{i}\r\n");
+				//CountSpliterReceiveFilter - 固定数量分隔符协议
+				//var buffter = Encoding.UTF8.GetBytes($" ECHO#part1#part2#part3#part4#part5#part6#{i}#");
+				//var buffter = Encoding.ASCII.GetBytes($"KILL BILL");
 				var temp = socketClient.Send(buffter);
 				Console.WriteLine(i);
 				Thread.Sleep(1000);

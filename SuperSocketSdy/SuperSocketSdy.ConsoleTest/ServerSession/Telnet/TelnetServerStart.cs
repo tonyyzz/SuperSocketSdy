@@ -11,15 +11,16 @@ namespace SuperSocketSdy.ConsoleTest.Telnet
 		public void Do()
 		{
 			var appServer = new TelnetServer();
-			ServerConfig serverConfig = new ServerConfig();
-
 			Console.WriteLine($"BodyName:{Encoding.UTF8.BodyName}");
 			Console.WriteLine($"EncodingName:{Encoding.UTF8.EncodingName}");
 			Console.WriteLine($"HeaderName:{Encoding.UTF8.HeaderName}");
 			Console.WriteLine($"WebName:{Encoding.UTF8.WebName}");
-
-			serverConfig.TextEncoding = Encoding.UTF8.WebName;
-			serverConfig.Port = 2012;
+			ServerConfig serverConfig = new ServerConfig
+			{
+				TextEncoding = Encoding.UTF8.WebName,
+				Port = 2012,
+				 DisableSessionSnapshot=true
+			};
 			//Setup the appServer
 			//if (!appServer.Setup(2012)) //Setup with listening port
 			Console.WriteLine("服务器启动中...");
