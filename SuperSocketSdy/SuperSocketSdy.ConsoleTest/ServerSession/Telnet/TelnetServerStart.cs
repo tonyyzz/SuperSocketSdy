@@ -1,4 +1,5 @@
-﻿using SuperSocket.SocketBase.Config;
+﻿using log4net.Repository.Hierarchy;
+using SuperSocket.SocketBase.Config;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,8 @@ namespace SuperSocketSdy.ConsoleTest.Telnet
 			{
 				TextEncoding = Encoding.UTF8.WebName,
 				Port = 2012,
-				 DisableSessionSnapshot=true
+				DisableSessionSnapshot = true,
+				MaxConnectionNumber = 10000
 			};
 			//Setup the appServer
 			//if (!appServer.Setup(2012)) //Setup with listening port
@@ -44,6 +46,8 @@ namespace SuperSocketSdy.ConsoleTest.Telnet
 			Console.WriteLine("The server started successfully, press key 'q' to stop it!");
 
 			Console.WriteLine($"服务器文本编码：{appServer.TextEncoding.WebName}");
+
+			appServer.Logger.Error("");
 
 			while (Console.ReadKey().KeyChar != 'q')
 			{
