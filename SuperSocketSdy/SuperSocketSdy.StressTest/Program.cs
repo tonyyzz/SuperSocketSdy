@@ -14,21 +14,22 @@ namespace SuperSocketSdy.StressTest
 		{
 			for (int i = 0; i < 100; i++)
 			{
-				ThreadPool.QueueUserWorkItem(o =>
-				{
-					
-					Console.WriteLine($"正在连接服务器...{(int)o}");
+				ThreadPool.QueueUserWorkItem(m => {
 					Socket socketClient = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 					IPAddress ip = IPAddress.Parse("127.0.0.1");
 					IPEndPoint point = new IPEndPoint(ip, 2012);
 					//进行连接
 					socketClient.Connect(point);
-					while (true)
-					{
-						Thread.Sleep(1);
-						Console.ReadKey();
-					}
-				},i);
+				});
+				//new Thread(o =>
+				//{
+				//	Socket socketClient = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+				//	IPAddress ip = IPAddress.Parse("127.0.0.1");
+				//	IPEndPoint point = new IPEndPoint(ip, 2012);
+				//	//进行连接
+				//	socketClient.Connect(point);
+				//})
+				//{ IsBackground = true }.Start();
 			}
 			while (true)
 			{

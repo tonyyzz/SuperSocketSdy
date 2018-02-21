@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{955244DC-9A6E-460C-8487-BB08AD0713B8}</ProjectGuid>
+    <ProjectGuid>{D8C05F12-B577-490D-BADA-FB3F117DB409}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>SuperSocketSdy.StressTest</RootNamespace>
     <AssemblyName>SuperSocketSdy.StressTest</AssemblyName>
