@@ -1,5 +1,4 @@
 ﻿using MongoDB.Driver;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,7 +42,10 @@ namespace SuperSocketSdy.MongoStdy45
 			//删除表
 			//mg.Drop();
 
-			Console.WriteLine(JsonConvert.SerializeObject(list));
+			foreach (var item in list)
+			{
+				Console.WriteLine($"{item.Id}");
+			}
 			Console.ReadKey();
 		}
 	}

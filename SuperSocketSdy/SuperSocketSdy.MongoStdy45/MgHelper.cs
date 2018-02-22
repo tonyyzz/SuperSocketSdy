@@ -58,7 +58,8 @@ namespace SuperSocketSdy.MongoStdy45
 		public T Insert(T entity)
 		{
 			var flag = ObjectId.GenerateNewId();
-			entity.GetType().GetProperty("Id").SetValue(entity, flag);
+			//entity.GetType().GetProperty("Id").SetValue(entity, flag);
+			entity.GetType().GetProperty("Id").SetValue(entity, flag,null);
 			//entity.State = "y";
 			entity.CreateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 			entity.UpdateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
