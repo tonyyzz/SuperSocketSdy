@@ -59,7 +59,7 @@ namespace SuperSocketSdy.MongoStdy45
 		{
 			var flag = ObjectId.GenerateNewId();
 			//entity.GetType().GetProperty("Id").SetValue(entity, flag);
-			entity.GetType().GetProperty("Id").SetValue(entity, flag,null);
+			entity.GetType().GetProperty("Id").SetValue(entity, flag, null);
 			//entity.State = "y";
 			entity.CreateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 			entity.UpdateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
@@ -137,13 +137,16 @@ namespace SuperSocketSdy.MongoStdy45
 
 			foreach (var prop in entity.GetType().GetProperties())
 			{
-				var newValue = prop.GetValue(entity);
-				var oldValue = old.GetType().GetProperty(prop.Name).GetValue(old);
+				//var newValue = prop.GetValue(entity);
+				var newValue = prop.GetValue(entity, null);
+				//var oldValue = old.GetType().GetProperty(prop.Name).GetValue(old);
+				var oldValue = old.GetType().GetProperty(prop.Name).GetValue(old, null);
 				if (newValue != null)
 				{
 					if (!newValue.ToString().Equals(oldValue.ToString()))
 					{
-						old.GetType().GetProperty(prop.Name).SetValue(old, newValue.ToString());
+						//old.GetType().GetProperty(prop.Name).SetValue(old, newValue.ToString());
+						old.GetType().GetProperty(prop.Name).SetValue(old, newValue.ToString(), null);
 					}
 				}
 			}
@@ -155,7 +158,7 @@ namespace SuperSocketSdy.MongoStdy45
 			ReplaceOneResult result = collection.ReplaceOne(filter, old);
 		}
 
-		
+
 
 
 
@@ -164,7 +167,7 @@ namespace SuperSocketSdy.MongoStdy45
 		/// 删除表
 		/// </summary>
 		/// <param name="entity"></param>
-		public  void Drop()
+		public void Drop()
 		{
 			db.DropCollection(typeof(T).Name);
 		}

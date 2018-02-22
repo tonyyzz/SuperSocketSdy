@@ -20,6 +20,8 @@ namespace SuperSocketSdy.MongoStdy45
 			//var collection = mongoDatabase.GetCollection<Auth>("test3");
 			//collection.InsertOne(new Auth { });
 
+
+
 			MgHelper<Auth> mg = new MgHelper<Auth>();
 			//插入
 			//mg.Insert(new Auth() { });
@@ -29,23 +31,24 @@ namespace SuperSocketSdy.MongoStdy45
 			//查找一个
 			//var auth = mg.QueryOne("5a8e29d58c66621a204a1992");
 
-			//查找所有
-			var list = mg.QueryAll();
+			//查找所有--
+			//var list = mg.QueryAll();
 
 			//删除
 			//mg.Delete("5a8e29d58c66621a204a1992");
 
 			//更新
-			//var auth = mg.QueryOne("5a8e2efe8c666235104b5898");
-			//mg.Update(auth);
+			var auth = mg.QueryOne("5a8e7f4fd064451a10b3a9db");
+			mg.Update(auth);
 
 			//删除表
 			//mg.Drop();
 
-			foreach (var item in list)
-			{
-				Console.WriteLine($"{item.Id}");
-			}
+			//foreach (var item in list)
+			//{
+			//	Console.WriteLine($"{item.Id}");
+			//}
+			Console.WriteLine("测试");
 			Console.ReadKey();
 		}
 	}
