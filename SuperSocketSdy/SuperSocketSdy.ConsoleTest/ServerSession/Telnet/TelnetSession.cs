@@ -23,15 +23,15 @@ namespace SuperSocketSdy.ConsoleTest.Telnet
 		{
 			//add you logics which will be executed after the session is closed
 			base.OnSessionClosed(reason);
-			Console.WriteLine("");
-			Console.WriteLine($"远程客户端{this.RemoteEndPoint.Address.ToString()}:{this.RemoteEndPoint.Port}断开连接");
+			//Console.WriteLine("");
+			//Console.WriteLine($"远程客户端{this.RemoteEndPoint.Address.ToString()}:{this.RemoteEndPoint.Port}断开连接");
 		}
 
 		protected override void OnSessionStarted()
 		{
 			this.Send("Welcome to SuperSocket Telnet Server");
 			//Console.WriteLine("");
-			Console.WriteLine($"远程IP端口：{this.RemoteEndPoint.Address.ToString()}:{this.RemoteEndPoint.Port}");
+			//Console.WriteLine($"远程IP端口：{this.RemoteEndPoint.Address.ToString()}:{this.RemoteEndPoint.Port}");
 
 			//Console.WriteLine($"编码：{this.Charset.WebName}");
 			//Console.WriteLine($"是否连接：{this.Connected}");
@@ -44,7 +44,7 @@ namespace SuperSocketSdy.ConsoleTest.Telnet
 			//Console.WriteLine($"安全协议：{this.SecureProtocol.ToString()}");
 
 			var sessions = this.AppServer.GetAllSessions().ToList();
-			Console.WriteLine($"当前连接数量：{sessions.Count()}");
+			//Console.WriteLine($"当前连接数量：{sessions.Count()}");
 		}
 
 		//服务器发送给客户端的消息的后续处理方法

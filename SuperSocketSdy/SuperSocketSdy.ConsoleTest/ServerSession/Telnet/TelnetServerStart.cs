@@ -19,9 +19,9 @@ namespace SuperSocketSdy.ConsoleTest.Telnet
 			ServerConfig serverConfig = new ServerConfig
 			{
 				TextEncoding = Encoding.UTF8.WebName,
-				Port = 2012,
+				Port = 8088,
 				DisableSessionSnapshot = true,
-				MaxConnectionNumber = 10000
+				MaxConnectionNumber = 60000
 			};
 			//Setup the appServer
 			//if (!appServer.Setup(2012)) //Setup with listening port
