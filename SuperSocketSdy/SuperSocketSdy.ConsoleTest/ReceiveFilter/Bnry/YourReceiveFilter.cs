@@ -1,4 +1,5 @@
-﻿using SuperSocket.SocketBase.Protocol;
+﻿using SuperSocket.Common;
+using SuperSocket.SocketBase.Protocol;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,10 @@ namespace SuperSocketSdy.ConsoleTest.ReceiveFilter
 {
 	public class YourReceiveFilter : TerminatorReceiveFilter<BinaryRequestInfo>
 	{
+		public YourReceiveFilter() : base(new byte[] { })
+		{
+
+		}
 		protected YourReceiveFilter(byte[] terminator) : base(terminator)
 		{
 		}
@@ -15,7 +20,8 @@ namespace SuperSocketSdy.ConsoleTest.ReceiveFilter
 		//More code
 		protected override BinaryRequestInfo ProcessMatchedRequest(byte[] data, int offset, int length)
 		{
-			return null;
+			return new BinaryRequestInfo(Encoding.UTF8.GetString(data, offset, 4), data.CloneRange(offset, length));
+
 		}
 	}
 }

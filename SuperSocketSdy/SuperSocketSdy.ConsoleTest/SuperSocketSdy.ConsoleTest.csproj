@@ -60,6 +60,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attr\LogTimeCommandFilterAttribute.cs" />
+    <Compile Include="Cmd\Bnry\ECHO.cs" />
+    <Compile Include="ReceiveFilter\Bnry\MyFixedHeaderReceiveFilter.cs" />
     <Compile Include="ReceiveFilter\Bnry\YourReceiveFilterFactory.cs" />
     <Compile Include="ReceiveFilter\Bnry\YourReceiveFilter.cs" />
     <Compile Include="ReceiveFilter\MyReceiveFilter.cs" />
@@ -69,7 +71,6 @@
     <Compile Include="Cmd\App\ECHO.cs" />
     <Compile Include="Cmd\App\MULT.cs" />
     <Compile Include="Cmd\App\AVG.cs" />
-    <Compile Include="Cmd\Player\ECH.cs" />
     <Compile Include="Cmd\Telnet\ECHO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -88,8 +89,6 @@
     </Content>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Cmd\Bnry\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -12,6 +12,42 @@ namespace SuperSocketSdy.ConnTest
 	{
 		static void Main(string[] args)
 		{
+			//StressTest();
+
+			ConnTest();
+
+		}
+
+		private static void ConnTest()
+		{
+			Socket socketClient = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+			IPAddress ip = IPAddress.Parse("127.0.0.1");
+			//IPAddress ip = IPAddress.Parse("111.230.142.94");
+			IPEndPoint point = new IPEndPoint(ip, 8088);
+			//进行连接
+			socketClient.Connect(point);
+
+			//不停的接收服务器端发送的消息
+			Thread thread = new Thread(Recive)
+			{
+				IsBackground = true
+			};
+			thread.Start(socketClient);
+
+			var buffter = Encoding.UTF8.GetBytes($"01 Test Send Message\r\n");
+			//var buffter = Encoding.UTF8.GetBytes($"01 构建一个简单的TCP服务,然后在另一台机构建5000个连接的请求测试(测试电脑是一台笔记本),请求消息大小为1K;构建一个简单的TCP服务,然后在另一台机构建5000个连接的请求测试(测试电脑是一台笔记本),请求消息大小为1K;构建一个简单的TCP服务,然后在另一台机构建5000个连接的请求测试(测试电脑是一台笔记本),请求消息大小为1K;构建一个简单的TCP服务,然后在另一台机构建5000个连接的请求测试(测试电脑是一台笔记本),请求消息大小为1K;构建一个简单的TCP服务,然后在另一台机构建5000个连接的请求测试(测试电脑是一台笔记本),请求消息大小为1K;构建一个简单的TCP服务,然后在另一台机构建5000个连接的请求测试(测试电脑是一台笔记本),请求消息大小为1K;构建一个简单的TCP服务,然后在另一台机构建5000个连接的请求测试(测试电脑是一台笔记本),请求消息大小为1K;构建一个简单的TCP服务,然后在另一台机构建5000个连接的请求测试(测试电脑是一台笔记本),请求消息大小为1K;构建一个简单的TCP服务,然后在另一台机构建5000个连接的请求测试(测试电脑是一台笔记本),请求消息大小为1K;构建一个简单的TCP服务,然后在另一台机构建5000个连接的请求测试(测试电脑是一台笔记本),请求消息大小为1K;构建一个简单的TCP服务,然后在另一台\r\n");
+			//CountSpliterReceiveFilter - 固定数量分隔符协议
+			//var buffter = Encoding.UTF8.GetBytes($" ECHO#part1#part2#part3#part4#part5#part6#{i}#");
+			//var buffter = Encoding.ASCII.GetBytes($"KILL BILL");
+			var temp = socketClient.Send(buffter);
+
+			Console.WriteLine("消息发送成功");
+				Console.ReadKey();
+			
+		}
+
+		private static void StressTest()
+		{
 			Console.WriteLine("client连接");
 			//1K
 			//var str = "构建一个简单的TCP服务,然后在另一台机构建5000个连接的请求测试(测试电脑是一台笔记本),请求消息大小为1K;构建一个简单的TCP服务,然后在另一台机构建5000个连接的请求测试(测试电脑是一台笔记本),请求消息大小为1K;构建一个简单的TCP服务,然后在另一台机构建5000个连接的请求测试(测试电脑是一台笔记本),请求消息大小为1K;构建一个简单的TCP服务,然后在另一台机构建5000个连接的请求测试(测试电脑是一台笔记本),请求消息大小为1K;构建一个简单的TCP服务,然后在另一台机构建5000个连接的请求测试(测试电脑是一台笔记本),请求消息大小为1K;构建一个简单的TCP服务,然后在另一台机构建5000个连接的请求测试(测试电脑是一台笔记本),请求消息大小为1K;构建一个简单的TCP服务,然后在另一台机构建5000个连接的请求测试(测试电脑是一台笔记本),请求消息大小为1K;构建一个简单的TCP服务,然后在另一台机构建5000个连接的请求测试(测试电脑是一台笔记本),请求消息大小为1K;构建一个简单的TCP服务,然后在另一台机构建5000个连接的请求测试(测试电脑是一台笔记本),请求消息大小为1K;构建一个简单的TCP服务,然后在另一台机构建5000个连接的请求测试(测试电脑是一台笔记本),请求消息大小为1K;构建一个简单的TCP服务,然后在另一台";
@@ -63,6 +99,7 @@ namespace SuperSocketSdy.ConnTest
 				Console.ReadKey();
 			}
 		}
+
 		/// <summary>
 		/// 接收消息
 		/// </summary>
@@ -79,8 +116,8 @@ namespace SuperSocketSdy.ConnTest
 				{
 					break;
 				}
-				//var str = Encoding.UTF8.GetString(buffer, 0, effective);
-				//Console.WriteLine(str);
+				var str = Encoding.UTF8.GetString(buffer, 0, effective);
+				Console.WriteLine(str);
 			}
 		}
 	}

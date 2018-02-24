@@ -15,7 +15,7 @@ namespace SuperSocketSdy.ConsoleTest.ServerSession.Bnry
 			ServerConfig serverConfig = new ServerConfig
 			{
 				TextEncoding = Encoding.UTF8.WebName,
-				Port = 2012
+				Port = 8088
 			};
 			//Setup the appServer
 			//if (!appServer.Setup(2012)) //Setup with listening port
